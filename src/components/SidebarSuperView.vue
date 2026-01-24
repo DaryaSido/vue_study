@@ -19,7 +19,8 @@ export default defineComponent({})
 .aside {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  gap: 20px;
+  /* justify-content: space-evenly; */
 }
 button {
   padding: 10px;
@@ -29,5 +30,9 @@ button {
   color: white;
   border-radius: 5px;
   border: none;
+}
+button:hover {
+  background-color: rgb(76, 18, 131);
+  color: rgb(255, 255, 255);
 }
 </style>

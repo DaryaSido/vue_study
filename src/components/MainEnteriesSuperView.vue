@@ -25,6 +25,6 @@ export default defineComponent({
   display: block;
   font-size: 24px;
   font-style: italic;
-  color: black;
+  /* color: black; */
 }
 </style>
