@@ -1,16 +1,16 @@
 <template>
   <div class="counter">
-    <h2 :style="countTitleColor">{{ title }}</h2>
+    <h2 :style="[changeCounterTxt, countTitleColor]">{{ title }}</h2>
     <div>Count: {{ count }}</div>
     <div>Double count {{ doubleCount }}</div>
   </div>
-  <button @click="count++">Increment++</button>
-  <button @click="decrement">Decrement--</button>
-  <button @click="reset">Reset</button>
+  <button @click="count++" :style="changeCounterBtn">Increment++</button>
+  <button @click="decrement" :style="changeCounterBtn">Decrement--</button>
+  <button @click="reset" :style="changeCounterBtn">Reset</button>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, type CSSProperties, type PropType } from 'vue'
 
 export default defineComponent({
   data() {
@@ -23,6 +23,14 @@ export default defineComponent({
       type: String,
       default: 'Default counter title',
     },
+   changeCounterTxt: {
+    type: Object as PropType<CSSProperties>,
+    default: () => ({})
+   },
+     changeCounterBtn: {
+      type: Object as PropType<CSSProperties>,
+      default: () => ({})
+    }
   },
   emits: ['decrement'],
   computed: {
@@ -30,7 +38,13 @@ export default defineComponent({
       return 2 * this.count
     },
     countTitleColor() {
-      return { color: this.count > 5 ? 'red' : 'black' }
+      if(this.count >5) 
+      return {
+    'color': 'red'
+  }
+  else 
+  return {}
+      // return { color: this.count > 5 ? 'red' : 'black' }
     },
   },
   methods: {

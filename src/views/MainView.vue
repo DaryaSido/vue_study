@@ -3,7 +3,7 @@
     <header class="header">Заголовок</header>
     <section class="content">
       <h1 :style="{ color: isMainPageTitleGreen ? 'green' : 'black' }">Main Page</h1>
-      <ClickCounter @decrement="decrementHandler" :title="$options.title" />
+      <!-- <ClickCounter @decrement="decrementHandler" :title="$options.title" /> -->
     </section>
     <footer class="footer">Подвал {{ new Date().getFullYear() }}</footer>
   </div>

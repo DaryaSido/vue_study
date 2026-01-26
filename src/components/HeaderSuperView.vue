@@ -1,12 +1,12 @@
 <template>
   <div class="header">
     <div class="head">Здесь будет логотип и номер телефона, но я пока не придумала</div>
-    <div class="button"><button @click="switchTheme" class="switcher">Сменить тему</button></div>
+    <div class="button"><button @click="switchTheme" class="switcher" :style="changeButtons">Сменить тему</button></div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, type CSSProperties, type PropType } from 'vue'
 
 export default defineComponent({
   props: {
@@ -14,7 +14,16 @@ export default defineComponent({
       type: Boolean,
       default: false,
     },
+    switchBack: {
+      type: Object as PropType<CSSProperties>,
+      default: () => ({})
+    },
+    changeButtons: {
+      type: Object as PropType<CSSProperties>,
+        default: () => ({})
+    }
   },
+ 
   emits: ['theme-switch'],
   methods: {
     switchTheme() {
@@ -26,9 +35,6 @@ export default defineComponent({
 
 <style scoped>
 .header {
-  /* display: flex;
-  justify-content: space-between;
-  align-items: center; */
   height: 70px;
   margin-bottom: 20px;
   display: grid;
@@ -38,6 +44,7 @@ export default defineComponent({
   color: white;
   background-color: blueviolet;
 }
+
 .head {
   grid-column: 3;
   align-items: center;
@@ -45,10 +52,10 @@ export default defineComponent({
 .button {
   grid-column: 4;
 }
-.switcher:hover {
+/* .switcher:hover {
   background-color: rgb(76, 18, 131);
   color: rgb(255, 255, 255);
-}
+} */
 
 .switcher {
   /* grid-column: 4; */

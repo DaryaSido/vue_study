@@ -1,17 +1,17 @@
 <template>
   <div :class="{ dark: isDark }" class="page">
-    <HeaderSuperView @theme-switch="switchTheme" />
+    <HeaderSuperView @theme-switch="switchTheme" :style="switchBack" :change-buttons="changeButtons" />
     <section class="main">
       <MainEnteriesSuperView />
       <SidebarSuperView />
     </section>
-    <FooterSuperView />
+    <FooterSuperView :style="switchBack" />
   </div>
 </template>
 
 <script lang="ts">
 import HeaderSuperView from '@/components/HeaderSuperView.vue'
-import { defineComponent } from 'vue'
+import { defineComponent, type CSSProperties } from 'vue'
 import SidebarSuperView from '@/components/SidebarSuperView.vue'
 import FooterSuperView from '@/components/FooterSuperView.vue'
 import MainEnteriesSuperView from '@/components/MainEnteriesSuperView.vue'
@@ -28,6 +28,31 @@ export default defineComponent({
       this.isDark = !this.isDark
     },
   },
+  computed: {
+    switchBack(): CSSProperties {
+      return {
+        'background-color': this.isDark ? 'greenyellow' : 'blueviolet',
+        'color': this.isDark ? 'black' : 'white'
+      }
+    },
+    changeButtons(): CSSProperties {
+      return {
+        'color': this.isDark ? 'white' : 'blueviolet',
+        'background-color': this.isDark ? 'blueviolet' : 'white'
+      }
+    },
+    changeCounterTxt(): CSSProperties {
+      return {
+        'color': this.isDark ? 'greenyellow' : 'black'
+      }
+    },
+    changeCounterBtn(): CSSProperties {
+      return {
+        'color': this.isDark ? 'black' : 'white',
+        'background-color': this.isDark ? 'greenyellow' : 'blueviolet'
+      }
+    }
+  }
 })
 </script>
 
