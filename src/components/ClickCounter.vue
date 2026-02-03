@@ -1,12 +1,14 @@
 <template>
+  <div>
   <div class="counter">
-    <h2 :style="[changeCounterTxt, countTitleColor]">{{ title }}</h2>
+    <h2 :style="{...changeCounterTxt, ...countTitleColor}">{{ title }}</h2>
     <div>Count: {{ count }}</div>
     <div>Double count {{ doubleCount }}</div>
   </div>
   <button @click="count++" :style="changeCounterBtn">Increment++</button>
   <button @click="decrement" :style="changeCounterBtn">Decrement--</button>
   <button @click="reset" :style="changeCounterBtn">Reset</button>
+  </div>
 </template>
 
 <script lang="ts">

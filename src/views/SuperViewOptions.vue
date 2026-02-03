@@ -2,7 +2,8 @@
   <div :class="{ dark: isDark }" class="page">
     <HeaderSuperView @theme-switch="switchTheme" :style="switchBack" :change-buttons="changeButtons" />
     <section class="main">
-      <MainEnteriesSuperView />
+      <MainEnteriesSuperView :change-counter-btn="changeCounterBtn" 
+      :change-counter-txt="changeCounterTxt"/>
       <SidebarSuperView />
     </section>
     <FooterSuperView :style="switchBack" />
@@ -61,6 +62,7 @@ export default defineComponent({
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  min-height: 100vh;
 }
 section {
   min-height: 70vh;

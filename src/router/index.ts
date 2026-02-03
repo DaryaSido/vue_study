@@ -1,4 +1,6 @@
-import SuperView from '@/views/SuperView.vue'
+import MainContent from '@/components/composition/MainContent.vue'
+import MainViewComposition from '@/views/MainViewComposition.vue'
+import SuperView from '@/views/SuperViewOptions.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
@@ -7,6 +9,11 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
+      component: MainViewComposition,
+    },
+     {
+      path: '/options',
+      name: 'options',
       component: SuperView,
     },
     {
