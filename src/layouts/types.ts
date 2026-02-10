@@ -19,8 +19,10 @@ export interface IProduct {
     label: string,
     cost: number,
     img: string
+   
 }
 
 export interface IProductCard {
     product?: IProduct
+     isDark?: boolean;
 }

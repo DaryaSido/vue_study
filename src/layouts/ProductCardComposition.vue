@@ -1,5 +1,5 @@
 <template>
-    <div class="item">
+    <div :class="['item', { 'dark-theme': props.isDark }]">
         <slot name="preppend"/>
         <img :src="$props.product?.img" class="prod-pic" >
         <div class="name">Наименование: {{ product.name }}</div>
@@ -15,8 +15,13 @@ import { defaultProduct } from './constants'
 import type { IProductCard } from './types';
 import ProductCard from '@/components/ProductCard.vue';
 const props = withDefaults(defineProps<IProductCard>(), {
-    product:() => defaultProduct
+    product:() => defaultProduct,
+     isDark: false
 } )
+//computed
+
+
+
 </script>
 
 <style scoped>
@@ -31,6 +36,12 @@ const props = withDefaults(defineProps<IProductCard>(), {
     border-radius: 5px;
     margin-top: 10px;
     margin-bottom: 10px;
+    background-color: white;
+
+}
+.item.dark-theme {
+    background-color: rgb(215, 0, 243);
+    color: white;
 
 }
 .prod-pic {

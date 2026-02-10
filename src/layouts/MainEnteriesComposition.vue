@@ -17,7 +17,7 @@
       img: 'https://gift-market.imgix.net/vfA96WSIDy.png'
 
     }"/>
-     <ProductCardComposition :product=" {
+     <ProductCardComposition :is-dark="isDark" :product=" {
       img: 'https://avatars.mds.yandex.net/get-mpic/12719412/2a00000196101e291c098af1ada612be4c66/orig',
       name: 'Коврик для мыши',
       label: 'Ardor',
@@ -30,7 +30,7 @@
     <div class="disclaimer">Внимание! Изображение на коврике может отличаться</div>
     </template>
      </ProductCardComposition>
-    <ProductCardComposition :product=" {
+    <ProductCardComposition :is-dark="isDark" :product=" {
       name: 'Компьютерная мышь',
       label: 'JOMAA',
       cost: 1350,
@@ -50,6 +50,11 @@
 <script setup lang="ts">
 import ClickCounterComposition from './ClickCounterComposition.vue';
 import ProductCardComposition from './ProductCardComposition.vue';
+
+//props
+defineProps<{
+  isDark?: boolean;
+}>();
 
 
 

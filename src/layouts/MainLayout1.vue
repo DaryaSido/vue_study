@@ -2,7 +2,7 @@
     <div :class="{dark: isDark}" class="root">
         <HeaderComposition :type="isDark" @theme-switch="switchTheme" :style="switchBack" :change-buttons="changeButtons"/>
       <section class="main" :class="{'dark-theme': isDark, 'light-theme': !isDark}">
-        <MainEnteriesComposition/>
+        <MainEnteriesComposition  :is-dark="isDark"/>
        <SidebarComposition :type="isDark"  />
       </section>
         <FooterComposition :style="switchBack"/>
