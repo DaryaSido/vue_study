@@ -22,23 +22,7 @@ import type { IIsDark } from './types';
 // const isDark = props.type;
 const isDark =  defineProps<IIsDark>();
 
-// const { type: isDark } = defineProps<IIsDark>();
-    // const isDark  = defineProps<IIsDark>();
-//methods 
 
-// const humsterImg = computed<CSSProperties>(()=> {
-//     return {  background: `url(${isDark 
-//         ? 'https://i0.wp.com/static.vecteezy.com/system/resources/previews/027/395/226/original/surprised-hamster-with-huge-eyes-png.png?ssl=1'
-//         : 'https://static.vecteezy.com/system/resources/thumbnails/050/760/318/small/cute-hamster-isolated-on-a-transparent-background-png.png'
-//     }) no-repeat center/cover`}
-   
-// }
-// )
-
-// const humsterClasses = computed(() => ({
-//     [styles.humster-container-light]:true,
-//     [styles.humster-container-dark]:isDark
-// }));
 const humsterClasses = computed(() => {
      console.log('isDark.value', isDark.type)
     return isDark.type 
