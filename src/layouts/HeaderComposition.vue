@@ -1,18 +1,29 @@
 <template>
   <div class="header">
-    <div class="head">Здесь будет логотип и номер телефона, но я пока не придумала</div>
-    <div class="button"><button class="switcher" >Сменить тему</button></div>
+    <div class="head">Кликай на хомяка - спасай планету!</div>
+    <div class="button"><button @click="switchTheme" class="switcher" >Сменить тему</button></div>
   </div>
 </template>
 
 <script setup lang="ts">
+import type { IHeaderCompositionEmit, IIsDark } from './types';
+
+//props
+const isDark = defineProps<IIsDark>()
+//emits
+const emit = defineEmits<{
+  'theme-switch': []
+}>()
+//methods
+const switchTheme = () => {
+  emit('theme-switch')
+} 
 
 </script>
 
 <style scoped>
 .header {
   height: 70px;
-  margin-bottom: 20px;
   display: grid;
   grid-template-columns: repeat(3 1fr);
   align-content: space-around;
@@ -24,6 +35,7 @@
 .head {
   grid-column: 3;
   align-items: center;
+  font-size: 30px;
 }
 .button {
   grid-column: 4;
