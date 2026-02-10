@@ -1,5 +1,5 @@
 <template>
-  <div class="main_info">
+  <div class="main_info" :class="{'dark-theme': isDark, 'light-theme': !isDark}">
     <h1>Страница подсчета кликов</h1>
     <div class="descr">Налетай, не скупись, кликать торопись!</div>
     <ClickCounterComposition 
@@ -62,9 +62,16 @@ defineProps<{
 
 <style scoped>
 .main_info {
+    padding-left: 20px;
+    padding-right: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+.main_info.dark-theme {
+    color: black;
+    background-color: yellowgreen;
+    
 }
 .descr {
   display: block;
@@ -74,6 +81,14 @@ defineProps<{
 }
 h1 {
     color: blueviolet;
+}
+.dark-theme h1 {
+    color: white;
+    font-weight: 600;
+}
+.dark-theme h2 {
+    font-weight: 600;
+
 }
 .prod-items {
   display: flex;
