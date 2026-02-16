@@ -13,21 +13,17 @@
 <script setup lang="ts">
 import { defaultProduct } from './constants' 
 import type { IProductCard } from './types';
-import ProductCard from '@/components/ProductCard.vue';
 const props = withDefaults(defineProps<IProductCard>(), {
     product:() => defaultProduct,
      isDark: false
 } )
-//computed
-
-
 
 </script>
 
 <style scoped>
 .item {
     padding: 20px;
-    height: 300px;
+    min-height: 300px;
     width: 200px;
     display: flex;
     flex-direction: column;
@@ -36,12 +32,19 @@ const props = withDefaults(defineProps<IProductCard>(), {
     border-radius: 5px;
     margin-top: 10px;
     margin-bottom: 10px;
+    font-size: 20px;
     background-color: white;
+    transition: transform 0.3s ease;
 
 }
+.item:hover {
+    transform: translateY(-5px)
+}
 .item.dark-theme {
-    background-color: rgb(215, 0, 243);
-    color: white;
+    background-color: blueviolet;
+    color: whitesmoke;
+    font-weight: 500;
+    box-shadow: 0 4px 16px yellow;
 
 }
 .prod-pic {

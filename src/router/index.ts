@@ -1,4 +1,4 @@
-import MainContent from '@/components/composition/MainContent.vue'
+
 import MainViewComposition from '@/views/MainViewComposition.vue'
 import SuperView from '@/views/SuperViewOptions.vue'
 import { createRouter, createWebHistory } from 'vue-router'

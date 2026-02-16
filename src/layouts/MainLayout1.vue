@@ -28,17 +28,7 @@ const changeButtons = computed<CSSProperties>(()=> {
         'background-color': isDark.value ? 'blueviolet' : 'white'
     }   
 })
-const changeCounterTxt = computed<CSSProperties>(()=> {
-    return {
-        'color': isDark.value ? 'greenyellow' : 'black'
-      }
-})
-const changeCounterBtn = computed<CSSProperties>(()=> {
-    return {
-        'color': isDark.value ? 'black' : 'white',
-        'background-color': isDark.value ? 'greenyellow' : 'blueviolet'
-    }
-})
+
 const switchBack = computed<CSSProperties>(()=> {
      return {
         'background-color': isDark.value ? 'greenyellow' : 'blueviolet',

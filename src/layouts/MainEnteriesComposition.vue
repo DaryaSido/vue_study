@@ -8,48 +8,32 @@
     <!-- <ClickCounter :style="changeCounterTxt" :changeCounterBtn="changeCounterBtn"/> -->
      
     
-    <h2>Не забудь купить:</h2>
-<section class="prod-items">
-    <ProductCard :product=" {
-      name: 'Компьютерная мышь',
-      label: 'Xiaomi',
-      cost: 1500,
-      img: 'https://gift-market.imgix.net/vfA96WSIDy.png'
-
-    }"/>
-     <ProductCardComposition :is-dark="isDark" :product=" {
-      img: 'https://avatars.mds.yandex.net/get-mpic/12719412/2a00000196101e291c098af1ada612be4c66/orig',
-      name: 'Коврик для мыши',
-      label: 'Ardor',
-      cost: 700,
-    }">
-    <template #preppend>
-      <div class="disclaimer">Осталось мало</div>
-    </template>
-    <template #append>
-    <div class="disclaimer">Внимание! Изображение на коврике может отличаться</div>
-    </template>
-     </ProductCardComposition>
-    <ProductCardComposition :is-dark="isDark" :product=" {
-      name: 'Компьютерная мышь',
-      label: 'JOMAA',
-      cost: 1350,
-      img: 'https://avatars.mds.yandex.net/get-mpic/13532112/2a00000198171c305af7ccbaa6460ecbeee7/orig'
-
-    }">
-    <template #preppend>
-      <div class="advantages">
-        Сохраняет естественное положение руки
-      </div>
-    </template>
-    </ProductCardComposition>
+     <h2>Не забудь купить:</h2>
+    <section class="prod-items">
+      <ProductCardComposition 
+      :is-dark="isDark"
+      v-for="product in products"
+      :key="product.id"  :product="product">
+        <template #preppend> 
+          <div class="disclaimer">{{product.titlePrepend}}</div>
+        </template>
+        <template #append>
+          <div class="disclaimer">{{product.titleAppend}}</div>
+        </template>
+      </ProductCardComposition> 
     </section>
+    <div class="news-container">
+     <PostsComposition :is-dark="isDark"/>
+     </div>
   </div>
+ 
 </template>
 
 <script setup lang="ts">
+import { products } from '@/components/composition/ProductsProfileComposition';
 import ClickCounterComposition from './ClickCounterComposition.vue';
 import ProductCardComposition from './ProductCardComposition.vue';
+import PostsComposition from '@/components/composition/PostsComposition.vue';
 
 //props
 defineProps<{
@@ -62,6 +46,7 @@ defineProps<{
 
 <style scoped>
 .main_info {
+  width: 80%;
     padding-left: 20px;
     padding-right: 20px;
   display: flex;
@@ -91,8 +76,12 @@ h1 {
 
 }
 .prod-items {
+  width: 100%;
   display: flex;
-  gap: 10px;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  gap: 50px;
   flex-direction: row;
   flex-wrap: wrap;
 }
@@ -105,5 +94,8 @@ h1 {
   font-size: 8px;
   font-weight: 600;
   color: green;
+}
+.news-container {
+  margin-top: 50px;
 }
 </style>

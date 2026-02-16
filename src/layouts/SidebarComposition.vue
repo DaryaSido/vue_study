@@ -13,7 +13,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, watch, type CSSProperties } from 'vue';
+import { computed } from 'vue';
 import type { IIsDark } from './types';
 
 //props

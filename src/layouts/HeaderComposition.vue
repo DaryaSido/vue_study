@@ -6,10 +6,7 @@
 </template>
 
 <script setup lang="ts">
-import type { IHeaderCompositionEmit, IIsDark } from './types';
 
-//props
-const isDark = defineProps<IIsDark>()
 //emits
 const emit = defineEmits<{
   'theme-switch': []
@@ -23,6 +20,7 @@ const switchTheme = () => {
 
 <style scoped>
 .header {
+  position: sticky;
   height: 70px;
   display: grid;
   grid-template-columns: repeat(3 1fr);
