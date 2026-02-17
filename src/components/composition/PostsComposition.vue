@@ -14,7 +14,7 @@
     </div>
     <button v-if="defaultPostsPage < 20" @click="showMorePosts" class="btn-more" >Показать еще 10 постов</button>
     <button v-else-if="defaultPostsPage === 20 "  @click="showAllPosts" class="btn-more">Показать все</button>
-    <button v-else="defaultPostsPage.value ===posts.length" @click="minimazePosts" class="btn-more">Свернуть все посты</button>
+    <button v-else @click="minimazePosts" class="btn-more">Свернуть все посты</button>
     </div>
 </template>
 
@@ -44,7 +44,7 @@ const getPosts = async () => {
     
     posts.value = await response.json()
 }
-catch (e:any) {
+catch (e:unknown) {
     if (e instanceof Error) {
         error.value = e.message
     }
