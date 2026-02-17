@@ -19,7 +19,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue';
+import { computed, onMounted, ref } from 'vue';
 //props
 defineProps<{
   isDark?: boolean;
@@ -34,6 +34,7 @@ interface IPost {
 const posts = ref<IPost[]>([])
 const error = ref<string | null>(null)
 const defaultPostsPage = ref(10)
+const isLoading = ref(true)
 const getPosts = async () => {
     try {
         const response = await fetch('https://jsonplaceholder.typicode.com/posts')
@@ -53,11 +54,13 @@ catch (e:unknown) {
     }
 }
 finally {
-    return true
+   isLoading.value = false
 }
 }
-getPosts()
-
+// getPosts()
+onMounted (()=> {
+    getPosts()
+})
 const defaultPosts = computed(()=> {
     return posts.value.slice(0, defaultPostsPage.value)
 })
