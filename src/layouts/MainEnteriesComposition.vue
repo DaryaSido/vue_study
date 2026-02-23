@@ -5,6 +5,7 @@
     <ClickCounterComposition 
     title="Жмякай на кнопку" 
     @decrement="(event)=>{console.log(event)}"/>
+    <FeedbackForm/>
     <!-- <ClickCounter :style="changeCounterTxt" :changeCounterBtn="changeCounterBtn"/> -->
      
     
@@ -34,6 +35,7 @@ import { products } from '@/components/composition/ProductsProfileComposition';
 import ClickCounterComposition from './ClickCounterComposition.vue';
 import ProductCardComposition from './ProductCardComposition.vue';
 import PostsComposition from '@/components/composition/PostsComposition.vue';
+import FeedbackForm from '@/components/FeedbackForm.vue';
 
 //props
 defineProps<{

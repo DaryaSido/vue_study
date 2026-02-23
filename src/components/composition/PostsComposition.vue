@@ -1,8 +1,8 @@
 <template>
     <div class="posts-container">
     <h2 :class="{'dark-theme': isDark, 'light-theme': !isDark}">Что нового в мире биткоина</h2>
-   
-    <div class="art-container">
+   <h2 v-if="isLoading">Loading</h2>
+    <div v-else class="art-container">
     <article class="news-card" :class="{'dark-theme': isDark, 'light-theme': !isDark}" v-for="post in defaultPosts" :key="post.id">
         <h3 :class="{'dark-theme': isDark, 'light-theme': !isDark}">{{ post.title }}</h3>
         <div>{{ post.body }}</div>
@@ -19,7 +19,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, ref } from 'vue';
+import { computed, ref } from 'vue';
 //props
 defineProps<{
   isDark?: boolean;
@@ -34,8 +34,9 @@ interface IPost {
 const posts = ref<IPost[]>([])
 const error = ref<string | null>(null)
 const defaultPostsPage = ref(10)
-const isLoading = ref(true)
+const isLoading = ref(false)
 const getPosts = async () => {
+    isLoading.value=true
     try {
         const response = await fetch('https://jsonplaceholder.typicode.com/posts')
     
@@ -57,10 +58,8 @@ finally {
    isLoading.value = false
 }
 }
-// getPosts()
-onMounted (()=> {
-    getPosts()
-})
+getPosts()
+
 const defaultPosts = computed(()=> {
     return posts.value.slice(0, defaultPostsPage.value)
 })

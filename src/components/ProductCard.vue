@@ -37,6 +37,7 @@ export default defineComponent({
 
 <style scoped>
 .item {
+    color:blue;
     padding: 20px;
     height: 300px;
     width: 200px;

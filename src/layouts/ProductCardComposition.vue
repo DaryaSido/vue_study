@@ -33,6 +33,7 @@ const props = withDefaults(defineProps<IProductCard>(), {
     margin-top: 10px;
     margin-bottom: 10px;
     font-size: 20px;
+    color: blue;
     background-color: white;
     transition: transform 0.3s ease;
 
