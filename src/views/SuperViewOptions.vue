@@ -1,9 +1,15 @@
 <template>
   <div :class="{ dark: isDark }" class="page">
-    <HeaderSuperView @theme-switch="switchTheme" :style="switchBack" :change-buttons="changeButtons" />
+    <HeaderSuperView
+      @theme-switch="switchTheme"
+      :style="switchBack"
+      :change-buttons="changeButtons"
+    />
     <section class="main">
-      <MainEnteriesSuperView :change-counter-btn="changeCounterBtn" 
-      :change-counter-txt="changeCounterTxt"/>
+      <MainEnteriesSuperView
+        :change-counter-btn="changeCounterBtn"
+        :change-counter-txt="changeCounterTxt"
+      />
       <SidebarSuperView />
     </section>
     <FooterSuperView :style="switchBack" />
@@ -33,27 +39,27 @@ export default defineComponent({
     switchBack(): CSSProperties {
       return {
         'background-color': this.isDark ? 'greenyellow' : 'blueviolet',
-        'color': this.isDark ? 'black' : 'white'
+        color: this.isDark ? 'black' : 'white',
       }
     },
     changeButtons(): CSSProperties {
       return {
-        'color': this.isDark ? 'white' : 'blueviolet',
-        'background-color': this.isDark ? 'blueviolet' : 'white'
+        color: this.isDark ? 'white' : 'blueviolet',
+        'background-color': this.isDark ? 'blueviolet' : 'white',
       }
     },
     changeCounterTxt(): CSSProperties {
       return {
-        'color': this.isDark ? 'greenyellow' : 'black'
+        color: this.isDark ? 'greenyellow' : 'black',
       }
     },
     changeCounterBtn(): CSSProperties {
       return {
-        'color': this.isDark ? 'black' : 'white',
-        'background-color': this.isDark ? 'greenyellow' : 'blueviolet'
+        color: this.isDark ? 'black' : 'white',
+        'background-color': this.isDark ? 'greenyellow' : 'blueviolet',
       }
-    }
-  }
+    },
+  },
 })
 </script>
 

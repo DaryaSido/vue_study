@@ -1,51 +1,47 @@
 <template>
-    <div class="sidebar">
-  <div class="aside">
-    <button>Статистика по кликам</button>
-    <button>Курс биткоина к клику</button>
-    <button>Зал славы кликеров</button>
-    <button>Создай своего хомяка</button>
-    <button>Обратная связь</button>
-    <button>Часто задаваемые вопросы</button>
-  </div>
-  <div :class="humsterClasses" class="humster-container"></div>
+  <div class="sidebar">
+    <div class="aside">
+      <button>Статистика по кликам</button>
+      <button>Курс биткоина к клику</button>
+      <button>Зал славы кликеров</button>
+      <button>Создай своего хомяка</button>
+      <button>Обратная связь</button>
+      <button>Часто задаваемые вопросы</button>
+    </div>
+    <div :class="humsterClasses" class="humster-container"></div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
-import type { IIsDark } from './types';
+import { computed } from 'vue'
+import type { IIsDark } from './types'
 
 //props
 
 // const props = defineProps<IIsDark>();
 // const isDark = props.type;
-const isDark =  defineProps<IIsDark>();
-
+const isDark = defineProps<IIsDark>()
 
 const humsterClasses = computed(() => {
-     console.log('isDark.value', isDark.type)
-    return isDark.type 
-        ? 'humster-container humster-container-dark'
-        : 'humster-container humster-container-light';
-});
-
-
-
+  console.log('isDark.value', isDark.type)
+  return isDark.type
+    ? 'humster-container humster-container-dark'
+    : 'humster-container humster-container-light'
+})
 </script>
 
 <style scoped>
 .aside {
-    padding-top: 20px;
+  padding-top: 20px;
   display: flex;
   flex-direction: column;
   gap: 20px;
   /* justify-content: space-evenly; */
 }
 .sidebar {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 button {
   padding: 10px;
@@ -61,20 +57,19 @@ button:hover {
   color: rgb(255, 255, 255);
 }
 .humster-container {
-    width: 100%;
-    min-height: 300px;
-    background-size: cover;
-    background-repeat: no-repeat;
+  width: 100%;
+  min-height: 300px;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 .humster-container-light {
-    background: url(https://static.vecteezy.com/system/resources/thumbnails/050/760/318/small/cute-hamster-isolated-on-a-transparent-background-png.png);
-    background-size: cover;
-    background-repeat: no-repeat;
+  background: url('../assets/images/humster-light.png');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 .humster-container-dark {
-    background: url(https://i0.wp.com/static.vecteezy.com/system/resources/previews/027/395/226/original/surprised-hamster-with-huge-eyes-png.png?ssl=1);
-    background-size: cover;
-    background-repeat: no-repeat;
+  background: url('../assets/images/humster-dark.png');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
-
 </style>
