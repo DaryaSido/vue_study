@@ -1,12 +1,10 @@
 <template>
   <div class="sidebar">
     <div class="aside">
-      <button>Статистика по кликам</button>
-      <button>Курс биткоина к клику</button>
-      <button>Зал славы кликеров</button>
-      <button>Создай своего хомяка</button>
-      <button>Обратная связь</button>
-      <button>Часто задаваемые вопросы</button>
+      <button class="button">Статистика по кликам</button>
+      <button class="button">Курс биткоина к клику</button>
+      <button class="button">Обратная связь</button>
+      <button class="button">Часто задаваемые вопросы</button>
     </div>
     <div :class="humsterClasses" class="humster-container"></div>
   </div>
@@ -43,7 +41,8 @@ const humsterClasses = computed(() => {
   flex-direction: column;
   justify-content: space-between;
 }
-button {
+.button {
+  text-align: center;
   padding: 10px;
   background-color: blueviolet;
   font-size: 15px;
@@ -52,7 +51,7 @@ button {
   border-radius: 5px;
   border: none;
 }
-button:hover {
+.button:hover {
   background-color: rgb(76, 18, 131);
   color: rgb(255, 255, 255);
 }

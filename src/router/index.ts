@@ -1,6 +1,6 @@
 
+import MainLayout1 from '@/layouts/MainLayout1.vue';
 import MainViewComposition from '@/views/MainViewComposition.vue'
-import SuperView from '@/views/SuperViewOptions.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
@@ -10,21 +10,64 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: MainViewComposition,
+      meta: {
+        layout: MainLayout1,
+
+      }
     },
      {
       path: '/options',
       name: 'options',
-      component: SuperView,
+      component:()=> import('@/views/SuperViewOptions.vue'),
     },
+
     {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/AboutView.vue'),
+      path: '/auth',
+      name: 'authorization',
+      component:()=> import('@/views/AuthViewComposition.vue'),
+         meta: {
+        layout: MainLayout1,
+
+      }
+    },
+      {
+      path: '/users',
+      name: 'users',
+      component:()=> import('@/views/UsersViewComposition.vue'),
+         meta: {
+        layout: MainLayout1,
+
+      }
+    },
+      {
+      path: '/user/:id',
+      name: 'user',
+      component:()=> import('@/views/UserViewComposition.vue'),
+         meta: {
+        layout: MainLayout1,
+
+      }
+    },
+        {
+      path: '/news',
+      name: 'news',
+      component:()=> import('@/components/composition/PostsComposition.vue'),
+         meta: {
+        layout: MainLayout1,
+
+      }
     },
   ],
+ 
 })
+const isAuth = false;
+ router.beforeEach((to) => {
+if(to.name==='users' && !isAuth) {
+alert('Авторизуйтесь');
+return {
+  name: 'authorization',
+};
+};
+  })
 
 export default router
